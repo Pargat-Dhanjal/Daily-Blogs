@@ -17,7 +17,6 @@ body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
 }
 
 .heading {
@@ -54,7 +53,7 @@ body {
     font-size: 1rem;
 }
 
-.greeting {
+.greeting p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     color: gray;
@@ -68,7 +67,7 @@ body {
     line-height: 3rem;
 }
 
-.input-feild {
+.input-field {
     background-color: #272727;
     border: solid var(--accent) 1px;
     margin: 2rem auto;
@@ -76,7 +75,7 @@ body {
     padding: 0 1rem;
 }
 
-.input-feild label {
+.form__label {
     position: absolute;
     left: 2.3rem;
     margin-top: -0.8rem;
@@ -84,7 +83,7 @@ body {
     padding: 0 0.5rem;
 }
 
-.input-feild i{
+.input-field i {
     padding: 1.2rem 0;
 }
 
@@ -136,36 +135,59 @@ input:focus {
 }
 
 @media only screen and (max-width : 720px) {
-    .heading {
-        position: relative;
-        text-align: center;
+    body {
+        height: 100vh;
         width: 100vw;
+    }
+
+    .heading {
+        background-color: transparent;
         height: 0;
     }
 
     .heading h1 {
+        display: none;
         transform: rotate(0);
         position: relative;
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin: 1rem auto;
     }
 
     .waves {
         position: absolute;
-        z-index: -1;
-        top: 40%;
-        transform: rotate(-90deg);
+        right: 0;
+        transform: rotate(90deg) translate(100%, 0);
+        transform-origin: 100% 0;
     }
 
     .form {
-        display: flex;
+        position: relative;
+        margin: 0 auto;
         text-align: center;
-        align-items: center;
-        margin: 0;
-        width: 90vw;
+        width: 85vw;
+    }
+
+    .form .greeting{
+        margin-top: 3rem;
+    }
+
+
+    .form__label {
+        left: 3rem;
+        margin-top: -0.8rem;
+        background: var(--bg);
+        padding: 0 0.5rem;
+
     }
 
     .btn {
         display: block;
+        position: relative;
+        margin: auto;
+    }
+
+    .option {
+        margin-top: 1rem;
+        float: none;
     }
 }
