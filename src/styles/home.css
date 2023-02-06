@@ -20,12 +20,18 @@ body {
     overflow: hidden;
 }
 
+.parent{
+    display: flex;
+    flex-direction: row;
+}
+
 nav {
     display: flex;
     position: relative;
     align-items: center;
     text-align: center;
     overflow: none;
+    order: 1;
 }
 
 nav ul {
@@ -34,28 +40,24 @@ nav ul {
     list-style-type: none;
 }
 
-.top-icons{
+.icons{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     height: 35vh;
     align-items: center;
+}
+
+.top-icons{
+    justify-content: center;
 }
 
 .middle-icons{
-    display: flex;
     justify-content:flex-start;
     flex-direction: column;
-    height: 35vh;
-    align-items: center;
 }
 
 .bottom-icons{
-    display: flex;
-    flex-direction: column;
-    height: 35vh;
-    align-items: center;
-    justify-content: center;
+    justify-content:flex-start;
 }
 
 nav ul li a{
@@ -80,6 +82,7 @@ nav ul li p{
     height: 50px;
     transition: transform 0.3s cubic-bezier(0.925, 0.150, 0.505, 1.030);
 }
+
 .fa-house{
     color: black;
     transform: scale(1.7);
@@ -93,18 +96,60 @@ nav ul li a:hover{
     transform: scale(1.1);
 }
 
-.divider{
-    background-color: var(--accent);
-    width: 0.1vw;
-}
-
-.parent{
-    display: flex;
-}
-
 .main{
     display: flex;
     flex-direction: column;
     width: 100vw;
     align-items: center;
+    order: 3;
+}
+
+.main h1{
+    padding-top: 10vh;
+}
+
+@media only screen and (max-width : 720px) {
+
+.parent{
+    flex-direction: column;
+}
+
+.main{ 
+    order: 1;
+    height: 90vh;
+}
+
+nav{
+    display: inline-block;
+    order: 3;
+}
+
+nav ul{
+    flex-direction: row;
+}
+
+nav ul li a{
+    padding: 10px;
+}
+
+.icons{
+    height: 10vh;
+    width: auto;
+    justify-content: center;
+}
+
+.top-icons{
+    flex-direction: row;
+    width: 35vw;
+}
+
+.middle-icons{
+    flex-direction: row;
+    width: 35vw;
+}
+
+.bottom-icons{
+    flex-direction: row;
+    width: 35vw;
+}
 }
