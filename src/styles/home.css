@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bg: #272727;
+    --accent: #F64253
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    overflow: none;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.top-icons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 35vh;
+    align-items: center;
+}
+
+.middle-icons{
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: column;
+    height: 35vh;
+    align-items: center;
+}
+
+.bottom-icons{
+    display: flex;
+    flex-direction: column;
+    height: 35vh;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li a{
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: var(--accent);
+    transition: transform 0.3s cubic-bezier(0.925, 0.150, 0.505, 1.030);
+}
+
+nav ul li p{
+    color: aliceblue;
+}
+
+.home-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s cubic-bezier(0.925, 0.150, 0.505, 1.030);
+}
+.fa-house{
+    color: black;
+    transform: scale(1.7);
+}
+
+.home-button:hover{
+    transform: scale(1.1);
+}
+
+nav ul li a:hover{
+    transform: scale(1.1);
+}
+
+.divider{
+    background-color: var(--accent);
+    width: 0.1vw;
+}
+
+.parent{
+    display: flex;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
