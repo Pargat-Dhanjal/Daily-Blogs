@@ -34,6 +34,8 @@ nav {
     text-align: center;
     overflow: none;
     order: 1;
+    border: 20px;
+    border-color: aqua;
 }
 
 nav ul {
@@ -137,6 +139,11 @@ nav ul li a:hover{
 .left-div{
     display: flex;
     flex-direction: column;
+    order: 1;
+}
+
+.right-div{
+    order: 2;
 }
 
 .date{
@@ -160,6 +167,14 @@ nav ul li a:hover{
     padding: 10px;
     display: flex;
     flex-direction: row;
+}
+
+.blog .content{
+    order: 1;
+}
+
+.blog .image{
+    order: 2;
 }
 
 .blog .discription{  
@@ -237,4 +252,85 @@ nav ul li a{
     flex-direction: row;
     width: 35vw;
 }
+
+.main .latest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 8vh;
+    left: 0vw;
+}
+
+.main .line{
+    background-color: var(--accent);
+    width: 50px;
+    height: 2px;
+}
+
+.blog{
+    flex-direction: column;
+}
+
+.blog-wrapper{
+    flex-direction: column;
+    top: 15vh;
+}
+
+.left-div{
+    flex-direction: row;
+    order: 2;
+}
+
+.date{
+    text-align: left;
+    width: 50vw;
+    font-size: 18px;
+    padding: 5px;
+    padding-top: 0px;
+    padding-left: 15px;
+}
+
+.username-div{
+    width: 50vw;
+    padding-top: 0px;
+    justify-content: right;
+    padding-right: 10px;
+}
+
+.username{
+    writing-mode:horizontal-tb;
+    transform: none;
+}
+
+.right-div{
+    order: 1;
+}
+
+.blog .content{
+    order: 2;
+}
+
+.blog .image{
+    order: 1;
+}
+
+.blog img{
+    padding-left: 0px;
+    padding-bottom: 0px;
+    border-radius: 0px;
+}
+
+.blog .tags {
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+
+.blog button{
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 5px 10px;
+    background-color: var(--bg);
+    border-radius: 100px;
+}
+
 }
