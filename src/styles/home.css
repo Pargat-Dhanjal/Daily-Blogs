@@ -204,17 +204,18 @@ nav ul {
     padding: 0px;
 }
 
-.blog button {
+.tags a {
     border: 2px solid var(--accent);
     color: var(--accent);
-    padding: 10px 20px;
-    background-color: var(--bg);
-    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border-radius: 2rem;
+    text-decoration: none;
 }
 
-.blog .tags {
-    padding-top: 10px;
-    padding-bottom: 2px;
+.tags {
+    margin: 1rem auto;
+    width: auto;
 }
 
 .blog img {
