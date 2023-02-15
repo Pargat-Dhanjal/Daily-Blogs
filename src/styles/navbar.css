@@ -1,0 +1,101 @@
+:root {
+    --bg: #272727;
+    --accent: #F64253
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    overflow: none;
+    order: 1;
+    border-right: 1px solid var(--accent);
+    width: 7rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.top-icons {
+    justify-content: space-between;
+    height: 40vh;
+}
+
+.bottom-icons {
+    height: 35vh;
+    justify-content: center;
+}
+
+.nav-buttons {
+    aspect-ratio: 1/1;
+    width: 100%;
+}
+
+.nav-buttons i {
+    padding: 1rem;
+}
+
+.nav-buttons a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--accent);
+    transition: all 0.4s linear;
+}
+
+.nav-buttons a:hover {
+    background-color: var(--accent);
+    border-radius: 100%;
+    color: var(--bg);
+}
+
+.nav-buttons p {
+    display: inline-block;
+    margin-top: 0.1rem;
+    font-size: 1rem;
+    color: aliceblue;
+    transition: all 0.4s linear;
+}
+
+.nav-buttons a:hover p {
+    color: var(--bg);
+}
+
+.selected {
+    background-color: var(--accent);
+    border-radius: 100%;
+}
+
+.selected i {
+    color: var(--bg);
+}
+
+.selected p {
+    color: var(--bg);
+}
+
