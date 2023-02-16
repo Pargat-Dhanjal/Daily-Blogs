@@ -29,6 +29,8 @@ body {
 
 .main {
     display: flex;
+    position: relative;
+    padding-left: 7rem;
     flex-direction: column;
     width: 100vw;
     align-items: center;
@@ -146,47 +148,8 @@ body {
         order: 1;
         height: 100vh;
         /* overflow-x: hidden; */
-        padding-bottom: 15rem;
-    }
-
-    /* Navbar */
-
-    nav {
-        position: fixed;
-        z-index: 10;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, -20%);
-        background-color: var(--bg);
-        width: 95%;
-        order: 3;
-        border: 1px solid var(--accent);
-        border-radius: 2rem;
-    }
-
-    nav ul {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
         padding: 0;
-    }
-
-    .nav-buttons {
-        padding: 0.5rem;
-        margin: auto 0.5rem;
-    }
-
-    .nav-buttons p {
-        display: none;
-    }
-
-    .icons {
-        height: 5rem;
-        width: auto;
-    }
-
-    .top-icons , .bottom-icons{
-        flex-direction: row;
+        padding-bottom: 15rem;
     }
 
     /* Home */
@@ -253,9 +216,11 @@ body {
     }
 
     .blog img {
+        width: 100%;
+        object-fit: cover;
         padding-left: 0px;
         padding-bottom: 0px;
-        border-radius: 0px;
+        border-radius: 1rem;
     }
 
     .blog .tags {
