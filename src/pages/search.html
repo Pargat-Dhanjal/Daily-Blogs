@@ -42,7 +42,7 @@
                     </div>
                     <div class="icons bottom-icons">
                         <li class="nav-buttons">
-                            <a href="#">
+                            <a href="create.html">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                                 <p>Create</p>
                             </a>
@@ -52,15 +52,59 @@
             </nav>
         </div>
         <div class="main">
-            <div class="search-button">
-                <form action="search.php">
-                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                    <input type="search" placeholder="search . . .">
+            <div class="wrapper">
+                <form action="search.php" method="POST">
+                    <div class="input-field">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <label for="email" class="form__label">Search</label>
+                        <input type="email" name="Email" placeholder="Enter your search here" required>
+                    </div>
                 </form>
-            </div>
-            <div class="page-title">
-                <div class="line"></div>
-                <h1>Search Results</h1>
+                <div class="page-title">
+                    <div class="line"></div>
+                    <h1>Search Results</h1>
+                </div>
+                <div class="blog-wrapper">
+                    <div class="left-div">
+                        <div class="date">
+                            31
+                            MAY
+                        </div>
+                        <div class="username-div">
+                            <h4 class="username">
+                                @its.beetoot
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="right-div">
+                        <div class="title">
+                            <h2>The Most Useful Twitter Bots</h2>
+                        </div>
+                        <div class="blog">
+                            <div class="content">
+                                <p class="description">
+                                    An open-source Twitter bot that lets you easily set reminders for public tweets.
+                                    Mention
+                                    "@RemindMe_OfThis" in the reply of any tweet and specify the time in natural English
+                                    when you would like to reminded of that tweet.
+                                    You could say things like in 2 days or in 12 hours or next week or even in 5 years.
+                                    Check out the source on Github.
+                                    An open-source Twitter bot that lets you easily set reminders for public tweets.
+                                    Mention
+                                </p>
+                                <a class="readmore" href="./blog.html">read more . . .</a>
+                                <div class="tags">
+                                    <a>#meditation</a>
+                                    <a>#meditation</a>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+                                    alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
