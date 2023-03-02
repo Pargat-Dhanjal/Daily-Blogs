@@ -57,12 +57,18 @@
                 <h1>Create</h1>
             </div>
             <div class="details">
-                <form action="search.php" method="POST">
-                    <div class="input">
-                        <div class="input-field">
-                            <input type="email" name="Email" placeholder="Write your title here . . ." required>
+                <form action="create.php" method="POST">
+                    <input type="text" class="input" placeholder="Write your title here......">
+                    <div class="blog-img">
+                        <div class="center">
+                            <img src="/src/images/img-upload.svg" alt="Image-upload">
+                            <p>Upload image here</p>
                         </div>
                     </div>
+                    <textarea name="content" id="content" class="input"
+                        placeholder="Write your content here......" ></textarea>
+                    <button type="submit" class="btn">PUBLISH</button>
+                    <button type="submit" class="neu-btn">SAVE DRAFT</button>
                 </form>
             </div>
         </div>
