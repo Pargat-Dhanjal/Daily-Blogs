@@ -56,6 +56,50 @@ body {
     height: 2px;
 }
 
+.details{
+    position: relative;
+    top: 15vh;
+    width: 81.5vw;
+    height: 50vh;
+}
+
+form {
+    position: relative;
+    width: 100%;
+}
+
+.input-field {
+    border-radius: 16px;
+background: #222222;
+box-shadow: inset 8px 8px 17px #1c1c1c,
+            inset -8px -8px 17px #282828;
+}
+
+input {
+    display: inline-block;
+    font-weight: 700;
+    width: 90%;
+    border: none;
+    padding: 10px 0px 0px 20px;
+    font-size: 30px;
+    background-color: transparent;
+    color: white;
+}
+
+input::placeholder {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(179, 179, 179);
+}
+
+.input h2{
+    padding-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
 @media only screen and (max-width : 720px) {
 
     .parent {
