@@ -57,18 +57,23 @@
                 <h1>Create</h1>
             </div>
             <div class="details">
-                <form action="create.php" method="POST">
-                    <input type="text" class="input" placeholder="Write your title here......">
-                    <div class="blog-img">
-                        <div class="center">
-                            <img src="/src/images/img-upload.svg" alt="Image-upload">
-                            <p>Upload image here</p>
+                <form action="search.php" method="POST">
+                    <div class="title_input">
+                        <div class="input-field">
+                            <input placeholder="Write your title here . . ." required>
                         </div>
                     </div>
-                    <textarea name="content" id="content" class="input"
-                        placeholder="Write your content here......" ></textarea>
-                    <button type="submit" class="btn">PUBLISH</button>
-                    <button type="submit" class="neu-btn">SAVE DRAFT</button>
+                    <div class="image_input">
+                        <i class="fa-solid fa-upload fa-5x"></i>
+                        <h1>Upload image here</h1>
+                    </div>
+                    <div class="blog_input" contenteditable="true">
+                        <textarea placeholder="Write your content here . . ." required></textarea>
+                    </div>
+                    <div class="button-wrapper">
+                        <button type="submit" class="btn">Publish</button>
+                        <button type="submit" class="btn btn-dark">Save Draft</button>
+                    </div>
                 </form>
             </div>
         </div>
