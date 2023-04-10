@@ -60,19 +60,31 @@
                 <form action="create.php" method="POST">
                     <input type="text" class="input" placeholder="Write your title here......">
                     <div class="blog-img">
-                        <div class="center">
-                            <img src="/src/images/img-upload.svg" alt="Image-upload">
-                            <p>Upload image here</p>
-                        </div>
+                        <img src="../images/img-upload.svg" alt="Image-upload" id="output">
+                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                            style="display: none;">
+                        <label for="file" id="output-label">Upload Image</label>
                     </div>
                     <textarea name="content" id="content" class="input"
-                        placeholder="Write your content here......" ></textarea>
+                        placeholder="Write your content here......"></textarea>
                     <button type="submit" class="btn">PUBLISH</button>
                     <button type="submit" class="neu-btn">SAVE DRAFT</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- Script -->
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            var label = document.getElementById('output-label');
+            label.innerHTML = "Upload another Image";
+            image.style.width = "100%";
+            image.src = URL.createObjectURL(event.target.files[0]);
+
+        };
+    </script>
 </body>
 
 </html>

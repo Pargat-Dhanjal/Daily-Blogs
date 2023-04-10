@@ -35,7 +35,7 @@ body {
     width: 100vw;
     align-items: center;
     order: 3;
-    overflow: none;
+    overflow: auto;
 }
 
 .page-title {
@@ -96,22 +96,25 @@ input:focus {
     box-shadow: 5px 5px 10px #1a1a1a,
         -5px -5px 10px #343434;
     width: 95%;
-    height: 10rem;
+    min-height: 10rem;
     margin: 2rem 0;
-}
-
-.center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-    color: gray;
+    padding: 1rem;
 }
 
-.center p {
+#output {
+    min-height: 10vh;
+    border-radius: 0.5rem;
+}
+
+#output-label {
+    cursor: pointer;
     margin-top: 1rem;
     font-weight: 600;
+    color: gray;
 }
 
 textarea {
@@ -153,9 +156,9 @@ textarea:focus {
     transform: scale(1.05);
 }
 
-.neu-btn{
+.neu-btn {
     box-shadow: inset 5px 5px 10px #1b1b1b,
-            inset -5px -5px 10px #333333;
+        inset -5px -5px 10px #333333;
     background-color: var(--bg);
     color: white;
     display: inline-block;
@@ -170,7 +173,7 @@ textarea:focus {
     transition: all 1s ease;
 }
 
-.neu-btn:hover{
+.neu-btn:hover {
     color: var(--accent);
 }
 
