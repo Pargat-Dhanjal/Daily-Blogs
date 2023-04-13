@@ -61,8 +61,7 @@
                     <input type="text" class="input" placeholder="Write your title here......">
                     <div class="blog-img">
                         <img src="../images/img-upload.svg" alt="Image-upload" id="output">
-                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
-                            style="display: none;">
+                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"style="display: none; width: 100vh;">
                         <label for="file" id="output-label">Upload Image</label>
                     </div>
                     <textarea name="content" id="content" class="input"
@@ -82,7 +81,6 @@
             label.innerHTML = "Upload another Image";
             image.style.width = "100%";
             image.src = URL.createObjectURL(event.target.files[0]);
-
         };
     </script>
 </body>
