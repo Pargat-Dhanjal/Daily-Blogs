@@ -1,17 +1,7 @@
 <html>
 <body>
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "blogsite";
-
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
-    if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-    }
+    include('../scripts/connection.php');  
 
     // Code to get the number of users in the database
     $query = "SELECT MAX(userid) as maxid FROM users";
@@ -24,9 +14,10 @@
     $email = $_POST["email"];
     $username = $_POST["name"];
     $pass = $_POST["password"];
+    $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (email, username, userid,pass)
-    VALUES ('$email', '$username', '$newid','$pass')";
+    VALUES ('$email', '$username', '$newid','$hashed_pass')";
 
     if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
