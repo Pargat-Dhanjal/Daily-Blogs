@@ -1,3 +1,19 @@
+<?php
+    //connect to database
+    include('../scripts/connection.php'); 
+    //start the session
+    session_start();
+
+    //check if the user is logged in
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        //if not logged in, redirect to login page
+        header('Location: login.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

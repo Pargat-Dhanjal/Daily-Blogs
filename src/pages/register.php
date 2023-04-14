@@ -15,7 +15,6 @@
 
     <script src="../scripts/passwordmatch.js"></script>
 </head>
-
 <body>
     <div>
         <div class="heading">
