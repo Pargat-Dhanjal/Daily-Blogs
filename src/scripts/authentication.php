@@ -28,15 +28,15 @@
             //set the session variable
             $_SESSION['user_id'] = $user_id;
             //navigate to home page
-            header("Location: home.php");
+            header("Location: ../pages/home.php");
             exit();
         } else {
             //stay on the index page
-            header("Location: index.php");
+            header("Location: ../pages/index.php");
         }
     } else {
         //stay on the index page
-        header("Location: index.php");
+        header("Location: ../pages/index.php");
     }
 ?>
 <!DOCTYPE html>

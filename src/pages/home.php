@@ -7,6 +7,9 @@
     //check if the user is logged in
     if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
+        $result = $conn->query('SELECT * FROM blogs');
+        $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
     } else {
         //if not logged in, redirect to login page
         header('Location: login.php');
@@ -58,7 +61,7 @@
                     </div>
                     <div class="icons bottom-icons">
                         <li class="nav-buttons">
-                            <a href="create.html">
+                            <a href="create.php">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                                 <p>Create</p>
                             </a>
@@ -72,46 +75,88 @@
                 <div class="line"></div>
                 <h1>Latest</h1>
             </div>
-            <div class="blog-wrapper">
-                <div class="left-div">
-                    <div class="date">
-                        31
-                        MAY
+            <?php
+                foreach ($blogs as $blog){
+                    $date = date('d', strtotime($blog['date_of_upload']));
+                    $month = date('m', strtotime($blog['date_of_upload']));
+                    if($month == 1){
+                        $month = 'Jan';
+                    }
+                    if($month == 2){
+                        $month = 'Feb';
+                    }
+                    if($month == 3){
+                        $month = 'Mar';
+                    }
+                    if($month == 4){
+                        $month = 'Apr';
+                    }
+                    if($month == 5){
+                        $month = 'May';
+                    }
+                    if($month == 6){
+                        $month = 'Jun';
+                    }
+                    if($month == 7){
+                        $month = 'Jul';
+                    }
+                    if($month == 8){
+                        $month = 'Aug';
+                    }
+                    if($month == 9){
+                        $month = 'Sep';
+                    }
+                    if($month == 10){
+                        $month = 'Oct';
+                    }
+                    if($month == 11){
+                        $month = 'Nov';
+                    }
+                    if($month == 12){
+                        $month = 'Dec';
+                    }
+
+                    $result2 = $conn->query("SELECT username FROM users WHERE userid = $user_id");
+                    $user = mysqli_fetch_assoc($result2);
+
+                    echo '
+                    <div class="blog-wrapper">
+                    <div class="left-div">
+                        <div class="date">'
+                        . $date .
+                        '<br>'
+                        . $month .
+                    '</div>
+                        <div class="username-div">
+                            <h4 class="username">
+                                @' . $user['username'] .
+                            '</h4>
+                        </div>
                     </div>
-                    <div class="username-div">
-                        <h4 class="username">
-                            @its.beetoot
-                        </h4>
-                    </div>
-                </div>
-                <div class="right-div">
-                    <div class="title">
-                        <h2>The Most Useful Twitter Bots</h2>
-                    </div>
-                    <div class="blog">
-                        <div class="content">
-                            <p class="description">
-                                An open-source Twitter bot that lets you easily set reminders for public tweets.
-                                Mention
-                                "@RemindMe_OfThis" in the reply of any tweet and specify the time in natural English
-                                when you would like to reminded of that tweet.
-                                You could say things like in 2 days or in 12 hours or next week or even in 5 years.
-                                Check out the source on Github.
-                                An open-source Twitter bot that lets you easily set reminders for public tweets.
-                                Mention
-                            </p>
-                            <a class="readmore" href="./blog.html">read more . . .</a>
-                            <div class="tags">
-                                <a>#meditation</a>
-                                <a>#meditation</a>
+                    <div class="right-div">
+                        <div class="title">
+                            <h2>'. $blog['title'] .'</h2>
+                        </div>
+                        <div class="blog">
+                            <div class="content">
+                                <p class="description">'
+                                    . $blog['content'] .
+                                '</p>
+                                <a class="readmore" href="./blog.html">read more . . .</a>
+                                <div class="tags">
+                                    <a>#meditation</a>
+                                    <a>#meditation</a>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"alt="Image">
                             </div>
                         </div>
-                        <div class="image">
-                            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"alt="Image">
-                        </div>
                     </div>
                 </div>
-            </div>
+                    ';
+                }
+            ?>
         </div>
     </div>
 </body>

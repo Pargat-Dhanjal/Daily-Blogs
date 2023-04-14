@@ -27,7 +27,7 @@
                 <h2>Welcome</h2>
                 <p>Let’s log you in quickly</p>
             </div>
-            <form method="POST" action="authentication.php">
+            <form method="POST" action="../scripts/authentication.php">
                 <div class="input-field">
                     <i class="fa-regular fa-envelope fa-lg"></i>
                     <label for="email" class="form__label">Email</label>
