@@ -57,13 +57,15 @@
                 <h1>Create</h1>
             </div>
             <div class="details">
-                <form action="../scripts/upload.php" method="POST">
+                <form action="../scripts/upload.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="title" class="input" placeholder="Write your title here......">
                     <div class="blog-img">
-                        <img src="../images/img-upload.svg" alt="Image-upload" id="output">
-                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"style="display: none; width: 100vh;">
-                        <label for="file" id="output-label">Upload Image</label>
-                    </div>
+                        <label for="file" id="output-label">
+                            <img src="../images/img-upload.svg" alt="Image-upload" id="output">
+                            <span></span>
+                        </label>
+                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none; width: 100vh;">
+                    </div>  
                     <textarea name="content" id="content" class="input"
                         placeholder="Write your content here......"></textarea>
                     <button type="submit" class="btn">PUBLISH</button>

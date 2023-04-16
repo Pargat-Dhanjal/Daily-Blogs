@@ -20,15 +20,18 @@
     $content = $_POST["content"];
     
     $date = date('Y-m-d');
-    // echo "<script>alert($date)</script>";
-    
-    $sql = "INSERT INTO blogs (title, content, blogid, userid,date_of_upload)
-    VALUES ('$title', '$content', '$newid', '$_SESSION[user_id]','$date')";
+    $image = $_FILES['image']['name'];
+    $target = "../images/blog_data/".basename($newid). ".png";
+    move_uploaded_file($_FILES['image']['tmp_name'], $target);
+    echo "$target";
+    $sql = "INSERT INTO blogs (title, content, blogid, userid,date_of_upload,blog_image)
+    VALUES ('$title', '$content', '$newid', '$_SESSION[user_id]','$date','$image')";
+    $sql = "INSERT INTO blogs (title, content, blogid, userid,date_of_upload,blog_image)
+    VALUES ('$title', '$content', '$newid', '$_SESSION[user_id]','$date','$image')";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: ../pages/home.php");
     }
-
     //close connection
     mysqli_close($conn);
 ?>

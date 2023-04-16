@@ -41,7 +41,7 @@
                 <ul>
                     <div class="icons top-icons">
                         <li class="nav-buttons">
-                            <a href="home.html" class="selected">
+                            <a href="home.php" class="selected">
                                 <i class="fa-solid fa-house fa-xl"></i>
                                 <p>Home</p>
                             </a>
@@ -115,8 +115,11 @@
                     if($month == 12){
                         $month = 'Dec';
                     }
-
-                    $result2 = $conn->query("SELECT username FROM users WHERE userid = $user_id");
+                    
+                    // get the blog id of the current blog
+                    $blogid = $blog['blogid'];
+                    // get the username of the user who uploaded the blog
+                    $result2 = $conn->query("SELECT u.username FROM users u JOIN blogs b ON b.userid = u.userid WHERE b.blogid = $blogid");
                     $user = mysqli_fetch_assoc($result2);
 
                     echo '
@@ -149,7 +152,7 @@
                                 </div>
                             </div>
                             <div class="image">
-                                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"alt="Image">
+                            <img src="../images/blog_data/' . $blog['blogid'] .'.png"/> 
                             </div>
                         </div>
                     </div>
