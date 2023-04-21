@@ -90,6 +90,45 @@ input:focus {
     outline: none;
 }
 
+#hashtags {
+    margin: 1rem auto;
+    width: 95%;
+    box-shadow: inset 5px 5px 10px #1b1b1b,
+        inset -5px -5px 10px #333333;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding:1.5rem 1rem;
+    height: 2.5rem;
+}
+
+.tag-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .tag{
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border-radius: 2rem;
+    text-decoration: none;
+    margin: 0.5rem;
+  }
+  
+  .tag::after {
+    pointer-events: all;
+    display: inline-block;
+    content: 'x';  
+    height: 20px;
+    width: 20px;
+    margin-left: 6px;
+    text-align: center;
+    color: #ccc;
+    cursor: pointer;
+  }
+  
+
 .blog-img {
     border-radius: 1rem;
     background: #272727;

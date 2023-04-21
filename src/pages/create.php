@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/create.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -65,9 +63,11 @@
                             <span></span>
                         </label>
                         <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none; width: 100vh;">
-                    </div>  
-                    <textarea name="content" id="content" class="input"
-                        placeholder="Write your content here......"></textarea>
+                    </div>
+                    <textarea name="content" id="content" class="input" placeholder="Write your content here......"></textarea>
+                    <input type="text" id="hashtags" autocomplete="off" placeholder="Type your hashtags and press space">
+                    <div class="tag-container">
+                    </div>
                     <button type="submit" class="btn">PUBLISH</button>
                     <button type="submit" class="neu-btn">SAVE DRAFT</button>
                 </form>
@@ -77,13 +77,38 @@
 
     <!-- Script -->
     <script>
-        var loadFile = function (event) {
+        var loadFile = function(event) {
             var image = document.getElementById('output');
             var label = document.getElementById('output-label');
             label.innerHTML = "Upload another Image";
             image.style.width = "100%";
             image.src = URL.createObjectURL(event.target.files[0]);
         };
+
+
+        // Hashtags
+        let input, hashtagArray, container, t;
+        input = document.querySelector('#hashtags');
+        container = document.querySelector('.tag-container');
+        hashtagArray = [];
+        input.addEventListener('keyup', () => {
+            if (event.which == 32 && input.value.length > 0 && input.value.trim() !== '') {
+                var text = document.createTextNode(input.value);
+                var p = document.createElement('p');
+                container.appendChild(p);
+                p.appendChild(text);
+                p.classList.add('tag');
+                input.value = '';
+
+                let deleteTags = document.querySelectorAll('.tag');
+
+                for (let i = 0; i < deleteTags.length; i++) {
+                    deleteTags[i].addEventListener('click', () => {
+                        container.removeChild(deleteTags[i]);
+                    });
+                }
+            }
+        });
     </script>
 </body>
 
