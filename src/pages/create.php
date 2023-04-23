@@ -26,13 +26,13 @@
                             </a>
                         </li>
                         <li class="nav-buttons">
-                            <a href="search.html">
+                            <a href="search.php">
                                 <i class="fa-solid fa-magnifying-glass fa-xl"></i>
                                 <p>Search</p>
                             </a>
                         </li>
                         <li class="nav-buttons">
-                            <a href="trending.html">
+                            <a href="trending.php">
                                 <i class="fa-solid fa-arrow-trend-up fa-xl"></i>
                                 <p>Trending</p>
                             </a>
@@ -40,9 +40,17 @@
                     </div>
                     <div class="icons bottom-icons">
                         <li class="nav-buttons">
-                            <a href="create.html" class="selected">
+                            <a href="create.php">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                                 <p>Create</p>
+                            </a>
+                        </li>
+                    </div>
+                    <div class="icons">
+                        <li class="nav-buttons">
+                            <a href="profile.php" class="selected">
+                                <i class="fa-solid fa-user fa-xl"></i>
+                                <p>Profile</p>
                             </a>
                         </li>
                     </div>

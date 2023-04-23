@@ -1,3 +1,23 @@
+<?php
+    //connect to database
+    include('../scripts/connection.php'); 
+    //start the session
+    session_start();
+
+    //check if the user is logged in
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+        // $result = $conn->query('SELECT * FROM blogs');
+        $result = $conn->query('SELECT * FROM blogs ORDER BY date_of_upload DESC');
+        $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    } else {
+        //if not logged in, redirect to login page
+        header('Location: login.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,19 +42,19 @@
                 <ul>
                     <div class="icons top-icons">
                         <li class="nav-buttons">
-                            <a href="home.html">
+                            <a href="home.php">
                                 <i class="fa-solid fa-house fa-xl"></i>
                                 <p>Home</p>
                             </a>
                         </li>
                         <li class="nav-buttons">
-                            <a href="search.html" class="selected">
+                            <a href="search.php">
                                 <i class="fa-solid fa-magnifying-glass fa-xl"></i>
                                 <p>Search</p>
                             </a>
                         </li>
                         <li class="nav-buttons">
-                            <a href="trending.html">
+                            <a href="trending.php">
                                 <i class="fa-solid fa-arrow-trend-up fa-xl"></i>
                                 <p>Trending</p>
                             </a>
@@ -42,9 +62,17 @@
                     </div>
                     <div class="icons bottom-icons">
                         <li class="nav-buttons">
-                            <a href="create.html">
+                            <a href="create.php">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                                 <p>Create</p>
+                            </a>
+                        </li>
+                    </div>
+                    <div class="icons">
+                        <li class="nav-buttons">
+                            <a href="profile.php" class="selected">
+                                <i class="fa-solid fa-user fa-xl"></i>
+                                <p>Profile</p>
                             </a>
                         </li>
                     </div>
@@ -52,7 +80,6 @@
             </nav>
         </div>
         <div class="main">
-            <div class="wrapper">
                 <form action="search.php" method="POST">
                     <div class="input-field">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -64,49 +91,59 @@
                     <div class="line"></div>
                     <h1>Search Results</h1>
                 </div>
-                <div class="blog-wrapper">
+                <?php
+                foreach ($blogs as $blog){
+                    $date = date('d', strtotime($blog['date_of_upload']));
+                    $month = date('m', strtotime($blog['date_of_upload']));
+                    $array = array('Jan' , 'Feb' , 'Mar' ,'Apr' , 'May' , 'Jun' , 'Jul' , 'Aug' , 'Sep' , 'Oct' , 'Nov' , 'Dec');
+
+                    $month = $array[$month - 1];
+                    
+                    // get the blog id of the current blog
+                    $blogid = $blog['blogid'];
+                    // get the username of the user who uploaded the blog
+                    $result2 = $conn->query("SELECT u.username FROM users u JOIN blogs b ON b.userid = u.userid WHERE b.blogid = $blogid");
+                    $user = mysqli_fetch_assoc($result2);
+
+                    echo '
+                    <div class="blog-wrapper">
                     <div class="left-div">
-                        <div class="date">
-                            31
-                            MAY
-                        </div>
+                        <div class="date">'
+                        . $date .
+                        '<br>'
+                        . $month .
+                    '</div>
                         <div class="username-div">
                             <h4 class="username">
-                                @its.beetoot
-                            </h4>
+                                @' . $user['username'] .
+                            '</h4>
                         </div>
                     </div>
                     <div class="right-div">
                         <div class="title">
-                            <h2>The Most Useful Twitter Bots</h2>
+                            <h2>'. $blog['title'] .'</h2>
                         </div>
                         <div class="blog">
                             <div class="content">
-                                <p class="description">
-                                    An open-source Twitter bot that lets you easily set reminders for public tweets.
-                                    Mention
-                                    "@RemindMe_OfThis" in the reply of any tweet and specify the time in natural English
-                                    when you would like to reminded of that tweet.
-                                    You could say things like in 2 days or in 12 hours or next week or even in 5 years.
-                                    Check out the source on Github.
-                                    An open-source Twitter bot that lets you easily set reminders for public tweets.
-                                    Mention
-                                </p>
-                                <a class="readmore" href="./blog.html">read more . . .</a>
+                                <p class="description">'
+                                    . $blog['content'] .
+                                '</p>
+                                <a class="readmore" href="./blog.php?blogid='.$blog['blogid'].'">read more . . .</a>
                                 <div class="tags">
                                     <a>#meditation</a>
                                     <a>#meditation</a>
                                 </div>
                             </div>
                             <div class="image">
-                                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-                                    alt="Image">
+                            <img src="../images/blog_data/' . $blog['blogid'] .'.png"/> 
                             </div>
                         </div>
                     </div>
                 </div>
+                    ';
+                }
+            ?>
             </div>
-        </div>
     </div>
 </body>
 

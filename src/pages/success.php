@@ -26,6 +26,8 @@
     //just hear cause it doesn't work without this
     if (mysqli_query($conn, $sql)) {}
 
+    header("Location: ../pages/index.php");
+
     //close connection
     mysqli_close($conn);
 ?>
