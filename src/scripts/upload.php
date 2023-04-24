@@ -24,10 +24,13 @@
     $target = "../images/blog_data/".basename($newid). ".png";
     move_uploaded_file($_FILES['image']['tmp_name'], $target);
     echo "$target";
-    $sql = "INSERT INTO blogs (title, content, blogid, userid,date_of_upload,blog_image)
-    VALUES ('$title', '$content', '$newid', '$_SESSION[user_id]','$date','$image')";
-    $sql = "INSERT INTO blogs (title, content, blogid, userid,date_of_upload,blog_image)
-    VALUES ('$title', '$content', '$newid', '$_SESSION[user_id]','$date','$image')";
+
+    $hashtags = json_decode($_POST['hashtags']);
+    $serializedhash = serialize($hashtags);
+
+    $sql = "INSERT INTO blogs (title, content, blogid, userid,date_of_upload,blog_image,hashtags)
+    VALUES ('$title', '$content', '$newid', '$_SESSION[user_id]','$date','$image','$serializedhash')";
+
 
     if (mysqli_query($conn, $sql)) {
         header("Location: ../pages/home.php");

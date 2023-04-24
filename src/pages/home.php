@@ -97,6 +97,8 @@
                     $month = date('m', strtotime($blog['date_of_upload']));
                     $array = array('Jan' , 'Feb' , 'Mar' ,'Apr' , 'May' , 'Jun' , 'Jul' , 'Aug' , 'Sep' , 'Oct' , 'Nov' , 'Dec');
 
+                    $hashtagArray = unserialize($blog['hashtags']);
+
                     $month = $array[$month - 1];
                     
                     // get the blog id of the current blog
@@ -133,10 +135,12 @@
                                 '
                                 </p>
                                 <a class="readmore" href="./blog.php?blogid='.$blog['blogid'].'">read more . . .</a>
-                                <div class="tags">
-                                    <a>#meditation</a>
-                                    <a>#meditation</a>
-                                </div>
+                                <div class="tags">';
+                                    foreach($hashtagArray as $hashtag){
+                                        echo '<a>#' . $hashtag . '</a> ';
+                                    }
+                                echo
+                                '</div>
                             </div>
                             <div class="image">
                             <img src="../images/blog_data/' . $blog['blogid'] .'.png"/> 

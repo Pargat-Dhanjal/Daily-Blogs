@@ -73,10 +73,10 @@
                         <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none; width: 100vh;">
                     </div>
                     <textarea name="content" id="content" class="input" placeholder="Write your content here......"></textarea>
-                    <input type="text" id="hashtags" autocomplete="off" placeholder="Type your hashtags and press space">
+                    <input type="text" name="hashtags" id="hashtags" autocomplete="off" placeholder="Type your hashtags and press space">
                     <div class="tag-container">
                     </div>
-                    <button type="submit" class="btn">PUBLISH</button>
+                    <button id= "publish-btn" type="submit" class="btn">PUBLISH</button>
                     <button type="submit" class="neu-btn">SAVE DRAFT</button>
                 </form>
             </div>
@@ -106,6 +106,8 @@
                 container.appendChild(p);
                 p.appendChild(text);
                 p.classList.add('tag');
+                hashtagArray.push(input.value);
+                console.log(hashtagArray)
                 input.value = '';
 
                 let deleteTags = document.querySelectorAll('.tag');
@@ -113,10 +115,22 @@
                 for (let i = 0; i < deleteTags.length; i++) {
                     deleteTags[i].addEventListener('click', () => {
                         container.removeChild(deleteTags[i]);
+                        hashtagArray.splice(i, 1);
                     });
                 }
             }
         });
+
+        document.getElementById('publish-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            let hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'hashtags';
+            hiddenInput.value = JSON.stringify(hashtagArray);
+            this.parentNode.appendChild(hiddenInput);
+            this.parentNode.submit();
+        });
+
     </script>
 </body>
 
