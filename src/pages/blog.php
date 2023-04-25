@@ -13,6 +13,12 @@
         $result2 = $conn->query("SELECT u.username FROM users u JOIN blogs b ON b.userid = u.userid WHERE b.blogid = $blogid");
         $user = mysqli_fetch_assoc($result2);
         $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        if($_SESSION['user_id'] != $blogs[0]['userid']){
+            $query2 = "UPDATE blogs SET clicks = clicks + 1 WHERE blogid = $blogid";
+            $conn->query($query2);
+            
+        }
     } else {
         //if not logged in, redirect to login page
         header('Location: login.php');
@@ -78,6 +84,9 @@
             $date = date('d', strtotime($blogs[0]['date_of_upload']));
             $month = date('m', strtotime($blogs[0]['date_of_upload']));
             $year = date('y', strtotime($blogs[0]['date_of_upload']));
+
+            $hashtagArray = unserialize($blogs[0]['hashtags']);
+
             $array = array('January' , 'February' , 'March' ,'April' , 'May' , 'June' , 'July' , 'August' , 'September' , 'October' , 'November' , 'December');
             $month = $array[$month - 1];
             echo '
@@ -88,10 +97,12 @@
                         <p>Written by <a href="/index.html">'.$user['username'].'</a></p>
                         <p>on '. $date .'th '. $month .' 20'. $year.'</p>
                     </div>
-                    <div class="tags">
-                        <a href="#">#Lorem</a>
-                        <a href="#">#Ipsum</a>
-                    </div>
+                    <div class="tags">';
+                        foreach($hashtagArray as $hashtag){
+                            echo '<a>#' . $hashtag . '</a> ';
+                        }
+                    echo
+                    '</div>
                 </div>
                 <div>
                     <div class="blog">
