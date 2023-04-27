@@ -86,9 +86,6 @@
                 <div class="line"></div>
                 <div class="header">
                     <h1>Latest</h1>
-                    <a href="../scripts/logout.php">
-                        <button class="btn"><i class="fa-solid fa-right-from-bracket"></i> Log-Out</button>
-                    </a>
                 </div>
             </div>
             <?php

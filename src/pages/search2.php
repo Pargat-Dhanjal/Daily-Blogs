@@ -8,12 +8,17 @@
     if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
         // $result = $conn->query('SELECT * FROM blogs');
-        $result = $conn->query('SELECT * FROM blogs ORDER BY date_of_upload DESC');
-        $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        
+        $search = $_POST["search"];
+
+
+        $blogs = $conn->query("SELECT * FROM blogs WHERE content LIKE '%" . $search . "%'");
+
+        // $blogs = mysqli_query($conn, $result);
 
     } else {
         //if not logged in, redirect to login page
-        header('Location: login.php');
+        header('Location: login.php');  
         exit;
     }
 ?>
@@ -84,7 +89,7 @@
             </nav>
         </div>
         <div class="main">
-                <form action="search2.php" method="POST">
+                <form action="search.php" method="POST">
                     <div class="input-field">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <label for="text" class="form__label">Search</label>
