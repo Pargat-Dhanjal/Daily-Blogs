@@ -53,7 +53,7 @@
                                 </a>
                             </li>
                             <li class="nav-buttons">
-                                <a href="trending.php">
+                                <a href="trending.php" class="selected">
                                     <i class="fa-solid fa-arrow-trend-up fa-xl"></i>
                                     <p>Trending</p>
                                 </a>
@@ -70,7 +70,7 @@
                         <div class="icons">
                             <li class="nav-buttons">
                                 <?php
-                                echo '<a href="./profile.php?userid='.$user_id.'" class="selected">
+                                echo '<a href="./profile.php?userid="'.$user_id.'">
                                     <i class="fa-solid fa-user fa-xl"></i>
                                     <p>Profile</p>
                                 </a>';

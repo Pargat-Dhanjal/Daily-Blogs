@@ -40,7 +40,7 @@
                     </div>
                     <div class="icons bottom-icons">
                         <li class="nav-buttons">
-                            <a href="create.php">
+                            <a href="create.php" class="selected">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                                 <p>Create</p>
                             </a>
@@ -48,10 +48,12 @@
                     </div>
                     <div class="icons">
                         <li class="nav-buttons">
-                            <a href="profile.php" class="selected">
+                            <?php
+                            echo '<a href="./profile.php?userid=' . $user_id . '">
                                 <i class="fa-solid fa-user fa-xl"></i>
                                 <p>Profile</p>
-                            </a>
+                            </a>';
+                            ?>
                         </li>
                     </div>
                 </ul>
@@ -76,7 +78,7 @@
                     <input type="text" name="hashtags" id="hashtags" autocomplete="off" placeholder="Type your hashtags and press space">
                     <div class="tag-container">
                     </div>
-                    <button id= "publish-btn" type="submit" class="btn">PUBLISH</button>
+                    <button id="publish-btn" type="submit" class="btn">PUBLISH</button>
                     <button type="submit" class="neu-btn">SAVE DRAFT</button>
                 </form>
             </div>
@@ -130,7 +132,6 @@
             this.parentNode.appendChild(hiddenInput);
             this.parentNode.submit();
         });
-
     </script>
 </body>
 
