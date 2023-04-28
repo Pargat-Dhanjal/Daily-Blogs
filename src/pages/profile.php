@@ -68,7 +68,7 @@
                     <div class="icons">
                         <li class="nav-buttons">
                             <?php
-                            echo '<a href="./profile.php?userid=' . $user_id . '">
+                            echo '<a href="./profile.php?userid=' . $user_id . '" class="selected">
                                 <i class="fa-solid fa-user fa-xl"></i>
                                 <p>Profile</p>
                             </a>';
