@@ -117,12 +117,10 @@
                 <div>
                     <div class="blog">
                         <div class="blog-img">
-                        <img src="../images/blog_data/' . $blogs[0]['blogid'] .'.png" alt="Image">
+                            <img src="../images/blog_data/' . $blogs[0]['blogid'] .'.png" alt="Image">
                         </div>
                         <div class="content">
-                            <p class="description">
-                                '.$blogs[0]['content'].'
-                            </p>
+                            <p class="description">'.$blogs[0]['content'].'</p>
                         </div>
                     </div>
                 </div>
