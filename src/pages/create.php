@@ -1,3 +1,21 @@
+<?php
+    //connect to database
+    include('../scripts/connection.php'); 
+    //start the session
+    session_start();
+
+    //check if the user is logged in
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+        // $result = $conn->query('SELECT * FROM blogs');
+        $result = $conn->query('SELECT * FROM blogs ORDER BY clicks DESC');
+        $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        //if not logged in, redirect to login page
+        header('Location: index.php');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

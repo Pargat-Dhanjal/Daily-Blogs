@@ -135,6 +135,19 @@ body {
     transform: rotate(180deg);
 }
 
+.username-tag{
+    color: white;
+    text-decoration: none;
+}
+
+.username-tag:hover{
+    color: var(--accent);
+}
+
+.readmore {
+    color: var(--accent);
+}
+
 .blog {
     padding: 10px;
     display: flex;

@@ -83,46 +83,47 @@ if (isset($_SESSION['user_id'])) {
             </nav>
         </div>
         <div class="main">
-            <form action="search2.php" method="POST">
-                <div class="input-field">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <label for="text" class="form__label">Search</label>
-                    <input type="text" name="search" placeholder="Enter your search here" required>
+            <div class="wrapper">
+                <form action="search2.php" method="POST">
+                    <div class="input-field">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <label for="text" class="form__label">Search</label>
+                        <input type="text" name="search" placeholder="Enter your search here" required>
+                    </div>
+                </form>
+                <div class="page-title">
+                    <div class="line"></div>
+                    <h1>Search Results</h1>
                 </div>
-            </form>
-            <div class="page-title">
-                <div class="line"></div>
-                <h1>Search Results</h1>
-            </div>
-            <?php
-            foreach ($blogs as $blog) {
-                $date = date('d', strtotime($blog['date_of_upload']));
-                $month = date('m', strtotime($blog['date_of_upload']));
-                $array = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+                <?php
+                foreach ($blogs as $blog) {
+                    $date = date('d', strtotime($blog['date_of_upload']));
+                    $month = date('m', strtotime($blog['date_of_upload']));
+                    $array = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 
-                $hashtagArray = unserialize($blog['hashtags']);
+                    $hashtagArray = unserialize($blog['hashtags']);
 
-                $month = $array[$month - 1];
+                    $month = $array[$month - 1];
 
-                // get the blog id of the current blog
-                $blogid = $blog['blogid'];
-                // get the username of the user who uploaded the blog
-                $result2 = $conn->query("SELECT u.username FROM users u JOIN blogs b ON b.userid = u.userid WHERE b.blogid = $blogid");
-                $user = mysqli_fetch_assoc($result2);
+                    // get the blog id of the current blog
+                    $blogid = $blog['blogid'];
+                    // get the username of the user who uploaded the blog
+                    $result2 = $conn->query("SELECT u.username FROM users u JOIN blogs b ON b.userid = u.userid WHERE b.blogid = $blogid");
+                    $user = mysqli_fetch_assoc($result2);
 
-                echo '
+                    echo '
                         <div class="blog-wrapper">
                         <div class="left-div">
                             <div class="date">'
-                    . $date .
-                    '<br>'
-                    . $month .
-                    '</div>
+                        . $date .
+                        '<br>'
+                        . $month .
+                        '</div>
                             <div class="username-div">
                                     <h4 class="username">
-                                        <a class="usernametag" href="./profile.php?userid=' . $blog['userid'] . '"> 
+                                        <a class="username-tag" href="./profile.php?userid=' . $blog['userid'] . '"> 
                                             @' . $user['username'] . //  PARGAT ISKA COLOUR CHANGE KAR 
-                    '</a> 
+                        '</a> 
                                     </h4>
                             </div>
                         </div>
@@ -134,16 +135,16 @@ if (isset($_SESSION['user_id'])) {
                                 <div class="content">
                                     <p class="description">
                                     '
-                    . $blog['content'] .
-                    '
+                        . $blog['content'] .
+                        '
                                     </p>
                                     <a class="readmore" href="./blog.php?blogid=' . $blog['blogid'] . '">read more . . .</a>
                                     <div class="tags">';
-                foreach ($hashtagArray as $hashtag) {
-                    echo '<a>#' . $hashtag . '</a> ';
-                }
-                echo
-                '</div>
+                    foreach ($hashtagArray as $hashtag) {
+                        echo '<a>#' . $hashtag . '</a> ';
+                    }
+                    echo
+                    '</div>
                                 </div>
                                 <div class="image">
                                 <img src="../images/blog_data/' . $blog['blogid'] . '.png"/> 
@@ -152,8 +153,9 @@ if (isset($_SESSION['user_id'])) {
                         </div>
                     </div>
                         ';
-            }
-            ?>
+                }
+                ?>
+            </div>
         </div>
     </div>
 </body>

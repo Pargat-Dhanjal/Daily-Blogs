@@ -118,7 +118,7 @@
                                 '</div>
                                 <div class="username-div">
                                     <h4 class="username">
-                                    <a class="usernametag" href="./profile.php?userid='.$blog['userid'].'">@'
+                                    <a class="username-tag" href="./profile.php?userid='.$blog['userid'].'">@'
                                         . $user['username'] .
                                     '</a> 
                                     </h4>

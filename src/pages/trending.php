@@ -70,7 +70,7 @@
                         <div class="icons">
                             <li class="nav-buttons">
                                 <?php
-                                echo '<a href="./profile.php?userid="'.$user_id.'">
+                                echo '<a href="./profile.php?userid='.$user_id.'">
                                     <i class="fa-solid fa-user fa-xl"></i>
                                     <p>Profile</p>
                                 </a>';
@@ -111,7 +111,7 @@
                     '</div>
                         <div class="username-div">
                                 <h4 class="username">
-                                    <a class="usernametag" href="./profile.php?userid='.$blog['userid'].'"> 
+                                    <a class="username-tag" href="./profile.php?userid='.$blog['userid'].'"> 
                                         @' . $user['username'] . //  PARGAT ISKA COLOUR CHANGE KAR 
                                     '</a> 
                                 </h4>

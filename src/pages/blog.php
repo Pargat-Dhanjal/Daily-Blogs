@@ -57,13 +57,13 @@
                             </a>
                         </li>
                         <li class="nav-buttons">
-                            <a href="search.html">
+                            <a href="search.php">
                                 <i class="fa-solid fa-magnifying-glass fa-xl"></i>
                                 <p>Search</p>
                             </a>
                         </li>
                         <li class="nav-buttons">
-                            <a href="trending.html">
+                            <a href="trending.php">
                                 <i class="fa-solid fa-arrow-trend-up fa-xl"></i>
                                 <p>Trending</p>
                             </a>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="icons bottom-icons">
                         <li class="nav-buttons">
-                            <a href="create.html">
+                            <a href="create.php">
                                 <i class="fa-solid fa-plus fa-xl"></i>
                                 <p>Create</p>
                             </a>

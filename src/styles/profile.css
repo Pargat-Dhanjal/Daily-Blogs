@@ -221,6 +221,15 @@ body {
     border-radius: 0 20px 20px 0px;
 }
 
+.username-tag{
+    color: white;
+    text-decoration: none;
+}
+
+.username-tag:hover{
+    color: var(--accent);
+}
+
 @media only screen and (max-width : 720px) {
 
     .parent {
