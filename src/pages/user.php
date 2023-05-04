@@ -83,7 +83,6 @@
             $query = "SELECT username FROM users WHERE userid = $userid";
             $result = $conn->query($query);
             $user = mysqli_fetch_assoc($result);
-
             $query2 = "SELECT * FROM blogs WHERE userid = $userid ORDER BY date_of_upload DESC";
             $result2 = $conn->query($query2);
             $blogs = mysqli_fetch_all($result2, MYSQLI_ASSOC);

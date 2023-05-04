@@ -330,4 +330,9 @@ body {
         padding-bottom: 2px;
     }
 
+    .line{
+        position: absolute;
+        left: 0;
+    }
+
 }
