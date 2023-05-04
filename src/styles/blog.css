@@ -106,13 +106,13 @@ body {
     .parent {
         flex-direction: column;
     }
-
+    
     .main {
         order: 1;
         left: 0;
-        height: 100vh;
+        min-height: 100vh;
         width: 90%;
-        padding-bottom: 15rem;
+        /* margin-bottom: 15rem; */
     }
 
     .page-title h1 {

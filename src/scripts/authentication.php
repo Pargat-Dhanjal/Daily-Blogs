@@ -12,8 +12,8 @@ $pass = $_POST["password"];
 //to prevent from mysqli injection
 $email = stripcslashes($email);
 $pass = stripcslashes($pass);
-$email = mysqli_real_escape_string($con, $email);
-$pass = mysqli_real_escape_string($con, $pass);
+$email = mysqli_real_escape_string($conn, $email);
+$pass = mysqli_real_escape_string($conn, $pass);
 
 //queries to get the password and the userid
 $query = "SELECT pass FROM users WHERE email='$email'";

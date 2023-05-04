@@ -39,8 +39,8 @@
                 <ul>
                     <div class="icons top-icons">
                         <li class="nav-buttons">
-                            <a href="home.php">
-                                <i class="fa-solid fa-house fa-xl"></i>
+                            <a href="home.php" class="selected">
+                                <i class="fa-solid fa-chevron-left fa-xl"></i>
                                 <p>Home</p>
                             </a>
                         </li>
@@ -68,7 +68,7 @@
                     <div class="icons">
                         <li class="nav-buttons">
                             <?php
-                            echo '<a href="./profile.php?userid=' . $user_id . '" class="selected">
+                            echo '<a href="./profile.php?userid=' . $user_id . '">
                                 <i class="fa-solid fa-user fa-xl"></i>
                                 <p>Profile</p>
                             </a>';
@@ -93,9 +93,6 @@
                     <div class="line"></div>
                     <div class="header">
                         <h1>'. $user['username'] .'\'s Blogs</h1>
-                        <a href="../scripts/logout.php">
-                            <button class="btn"><i class="fa-solid fa-right-from-bracket"></i></button>
-                        </a>
                     </div>
                 </div>
                 <div class="details">

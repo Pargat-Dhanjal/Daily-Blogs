@@ -111,7 +111,7 @@ if (isset($_SESSION['user_id'])) {
                     '</div>
                         <div class="username-div">
                                 <h4 class="username">
-                                    <a class="username-tag" href="./profile.php?userid=' . $blog['userid'] . '"> 
+                                    <a class="username-tag" href="./user.php?userid=' . $blog['userid'] . '"> 
                                         @' . $user['username'] . //  PARGAT ISKA COLOUR CHANGE KAR 
                     '</a> 
                                 </h4>
