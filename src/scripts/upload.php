@@ -25,7 +25,7 @@ $content = stripcslashes($content);
 $title = mysqli_real_escape_string($conn, $title);
 $content = mysqli_real_escape_string($conn, $content);
 
-$date = date('Y-m-d');
+$date = date('Y-m-d H:i:s');
 $image = $_FILES['image']['name'];
 $target = "../images/blog_data/" . basename($newid) . ".png";
 move_uploaded_file($_FILES['image']['tmp_name'], $target);
