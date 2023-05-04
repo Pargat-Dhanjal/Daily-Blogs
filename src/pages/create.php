@@ -83,7 +83,7 @@ if (isset($_SESSION['user_id'])) {
                 <h1>Create</h1>
             </div>
             <div class="details">
-                <form action="../scripts/upload.php" method="POST" enctype="multipart/form-data">
+                <form action="../scripts/upload.php" method="POST" enctype="multipart/form-data" style="display:inline;">
                     <input type="text" name="title" class="input" placeholder="Write your title here......">
                     <div class="blog-img">
                         <label for="file" id="output-label">
@@ -97,8 +97,8 @@ if (isset($_SESSION['user_id'])) {
                     <div class="tag-container">
                     </div>
                     <button id="publish-btn" type="submit" class="btn">PUBLISH</button>
-                    <button type="submit" class="neu-btn">SAVE DRAFT</button>
                 </form>
+                <button id="save-draft-btn" class="neu-btn">SAVE DRAFT</button>
             </div>
         </div>
     </div>
@@ -143,6 +143,39 @@ if (isset($_SESSION['user_id'])) {
                 }
             }
         });
+
+
+        // Save draft 
+        const saveDraftBtn = document.getElementById('save-draft-btn');
+        const titleInput = document.querySelector('input[name="title"]');
+        const imageInput = document.querySelector('input[name="image"]');
+        const contentTextarea = document.getElementById('content');
+        const hashtagsInput = document.getElementById('hashtags');
+
+        saveDraftBtn.addEventListener('click', () => {
+            const draftData = {
+                title: titleInput.value,
+                image: imageInput.value,
+                content: contentTextarea.value,
+                hashtags: hashtagsInput.value
+            };
+            const key = 'my-blog-draft'; // unique key for the saved data
+            localStorage.setItem(key, JSON.stringify(draftData));
+        });
+
+        // Load saved draft data if present
+        window.addEventListener('load', () => {
+            const key = 'my-blog-draft';
+            const savedData = localStorage.getItem(key);
+            if (savedData) {
+                const draftData = JSON.parse(savedData);
+                titleInput.value = draftData.title;
+                imageInput.value = draftData.image;
+                contentTextarea.value = draftData.content;
+                hashtagsInput.value = draftData.hashtags;
+            }
+        });
+
 
         document.getElementById('publish-btn').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent the default form submission
