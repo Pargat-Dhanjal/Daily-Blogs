@@ -104,7 +104,7 @@
                 <div class="page-title">
                     <h1>'.$blogs[0]['title'].'</h1>
                     <div class="page-info">
-                        <p>Written by <a href="/index.html">'.$user['username'].'</a></p>
+                        <p>Written by <a href="./user.php?userid=' . $blogs[0]['userid'] . '">'.$user['username'].'</a></p>
                         <p>on '. $date .'th '. $month .' 20'. $year.'</p>
                     </div>
                     <div class="tags">';
