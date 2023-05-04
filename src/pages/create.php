@@ -1,20 +1,20 @@
 <?php
-    //connect to database
-    include('../scripts/connection.php'); 
-    //start the session
-    session_start();
+//connect to database
+include('../scripts/connection.php');
+//start the session
+session_start();
 
-    //check if the user is logged in
-    if (isset($_SESSION['user_id'])) {
-        $user_id = $_SESSION['user_id'];
-        // $result = $conn->query('SELECT * FROM blogs');
-        $result = $conn->query('SELECT * FROM blogs ORDER BY clicks DESC');
-        $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    } else {
-        //if not logged in, redirect to login page
-        header('Location: index.php');
-        exit;
-    }
+//check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    // $result = $conn->query('SELECT * FROM blogs');
+    $result = $conn->query('SELECT * FROM blogs ORDER BY clicks DESC');
+    $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    //if not logged in, redirect to login page
+    header('Location: index.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,8 +88,8 @@
                     <div class="blog-img">
                         <label for="file" id="output-label">
                             <img src="../images/img-upload.svg" alt="Image-upload" id="output">
-                            <span></span>
                         </label>
+                        <span style="color: gray;">Upload an image</span>
                         <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none; width: 100vh;">
                     </div>
                     <textarea name="content" id="content" class="input" placeholder="Write your content here......"></textarea>
@@ -106,11 +106,14 @@
     <!-- Script -->
     <script>
         var loadFile = function(event) {
-            var image = document.getElementById('output');
-            var label = document.getElementById('output-label');
-            label.innerHTML = "Upload another Image";
-            image.style.width = "100%";
-            image.src = URL.createObjectURL(event.target.files[0]);
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("output");
+                preview.src = src;
+                preview.style.width = "20rem";
+                preview.style.height = "auto"; // Preserve aspect ratio of the image
+                preview.style.display = "block";
+            }
         };
 
 
