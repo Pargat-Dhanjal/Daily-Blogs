@@ -8,7 +8,7 @@
     if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
         // $result = $conn->query('SELECT * FROM blogs');
-        $result = $conn->query('SELECT * FROM blogs ORDER BY clicks ASC');
+        $result = $conn->query('SELECT * FROM blogs ORDER BY clicks DESC');
         $blogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
     } else {
         //if not logged in, redirect to login page
