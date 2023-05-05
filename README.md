@@ -25,9 +25,37 @@ The features aim to provide users with a seamless and enjoyable blogging experie
 Install [XAMPP](https://www.apachefriends.org/download.html) on your machine
 
     
+## Folder Structure
+
+```bash
+src/
+├── favicon_io
+├── images/
+│   └── blog_data
+├── pages/
+│   ├── index.php
+│   ├── create.php
+│   ├── home.php
+│   ├── .
+│   └── .
+├── scripts/
+│   ├── connection.php
+│   ├── authentication.php
+│   ├── validation.js
+│   ├── .
+│   └── .
+└── styles/
+    ├── home.css
+    ├── navbar.css
+    ├── .
+    └── .
+```
 ## 💻 Website Preview
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img src="https://i.ibb.co/tHqGXdW/Screenshot-2023-05-05-at-2-42-58-PM.png" alt="Screenshot-2023-05-05-at-2-42-58-PM" border="0" />
+<img src="https://i.ibb.co/JRnkcTd/Screenshot-2023-05-05-at-2-51-27-PM.png" alt="Screenshot-2023-05-05-at-2-51-27-PM" border="0" />
+<img src="https://i.ibb.co/kHZPDQL/Screenshot-2023-05-05-at-2-45-05-PM.png" alt="Screenshot-2023-05-05-at-2-45-05-PM" border="0" />
+<img src="https://i.ibb.co/xMjyCFC/Screenshot-2023-05-05-at-2-44-51-PM.png" alt="Screenshot-2023-05-05-at-2-44-51-PM" border="0" />
 
 
 ## ✍️ Authors
