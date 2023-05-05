@@ -29,7 +29,6 @@ Install [XAMPP](https://www.apachefriends.org/download.html) on your machine
 
 ```bash
 src/
-├── favicon_io
 ├── images/
 │   └── blog_data
 ├── pages/
