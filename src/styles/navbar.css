@@ -118,11 +118,10 @@ nav ul {
         flex-direction: row;
         justify-content: center;
         width: 100%;
-        padding: 0;
     }
 
     .nav-buttons {
-        padding: 0.5rem;
+        padding: 0rem;
         margin: auto 0.5rem;
     }
 

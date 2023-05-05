@@ -9,9 +9,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles/index.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -25,7 +23,7 @@
                 <h2>Welcome</h2>
                 <p>Let’s Register you in quickly</p>
             </div>
-            <form action="login.php" method="POST">
+            <form method="POST" action="success.php">
                 <div class="input-field">
                     <i class="fa-solid fa-user"></i>
                     <label for="name" class="form__label">Name</label>
@@ -34,7 +32,7 @@
                 <div class="input-field">
                     <i class="fa-regular fa-envelope fa-lg"></i>
                     <label for="email" class="form__label">Email</label>
-                    <input type="email" name="Email" placeholder="Enter Your Email" required>
+                    <input type="email" name="email" placeholder="Enter Your Email" required>
                 </div>
                 <div class="input-field">
                     <i class="fa-solid fa-lock fa-lg"></i>
@@ -44,17 +42,20 @@
                 <div class="input-field">
                     <i class="fa-solid fa-lock fa-lg"></i>
                     <label for="password" class="form__label">Confirm Password</label>
-                    <input type="password" name="password" placeholder="Confirm your password" required>
+                    <input type="password" name="confirmpassword" placeholder="Confirm your password" required>
                 </div>
-                <button type="submit" class="btn">Register</button>
+                <button id="register" class="btn">Register</button>
                 <div class="option">
                     Already have an account?
                     <br>
                     Login
-                    <a href="../../index.html">here</a>
+                    <a href="index.php">here</a>
                 </div>
             </form>
         </div>
+    </div>
+    <script src="../scripts/Validation.js"></script>
+
 </body>
 
 </html>
